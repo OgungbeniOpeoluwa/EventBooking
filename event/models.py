@@ -13,9 +13,9 @@ class Event(models.Model):
     name = models.CharField(max_length=100)
     date = models.DateField()
     available_attendee_count = models.IntegerField()
-    event_description = models.CharField(max_length=500)
+    event_description = models.TextField()
     category = models.CharField(max_length=35)
-    booked_user = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='booked_event')
+    booked_user = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='booked_event',blank=True,null=True)
     organizer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT, related_name='organizer_event')
 
     def __str__(self):
