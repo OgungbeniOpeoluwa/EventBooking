@@ -26,7 +26,7 @@ def event(request):
 
 
 @api_view(['POST'])
-def create_ticket(request):
+def book_ticket(request):
     if request.method == "POST":
         serializer = TicketSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
